@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Wallpaper">
+  <defs>
+    <linearGradient id="wallpaper-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b2f7d"/>
+      <stop offset="0.55" stop-color="#7a4bb5"/>
+      <stop offset="1" stop-color="#f0879f"/>
+    </linearGradient>
+    <clipPath id="wallpaper-frame"><rect x="6" y="6" width="52" height="52" rx="14"/></clipPath>
+  </defs>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#wallpaper-sky)"/>
+  <g clip-path="url(#wallpaper-frame)">
+    <circle cx="45" cy="21" r="6.5" fill="#ffd9a8" opacity="0.95"/>
+    <path d="M6 46 L22 30 L34 42 L43 33 L58 48 L58 58 L6 58 Z" fill="#2a1f52" opacity="0.85"/>
+    <path d="M6 52 L18 42 L27 51 L38 43 L58 56 L58 58 L6 58 Z" fill="#1b1436" opacity="0.9"/>
+  </g>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="none" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.5"/>
+</svg>

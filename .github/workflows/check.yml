@@ -1,0 +1,35 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    name: syntax and manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Parse JavaScript
+        run: |
+          node --check client.js
+          node --check index.js
+      - name: Parse manifests
+        run: |
+          node -e "JSON.parse(require('node:fs').readFileSync('package.json','utf8')); console.log('package.json ok')"
+          node -e "for (const f of ['en','zh']) JSON.parse(require('node:fs').readFileSync('locale/'+f+'.json','utf8')); console.log('locale ok')"
+      - name: Validate the bundle patch is YAML
+        run: |
+          node -e "
+          const text = require('node:fs').readFileSync('cordis.patch.yml', 'utf8');
+          if (!/^- insert:/m.test(text)) throw new Error('cordis.patch.yml must start with an insert block');
+          if (!/name: 'dsh-plugin-wallpaper'/.test(text)) throw new Error('patch does not insert this package');
+          console.log('cordis.patch.yml ok');
+          "

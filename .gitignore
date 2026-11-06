@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+*.tgz
+
+# Logs / caches
+*.log
+.DS_Store
+Thumbs.db
+.cache/
+
+# Editor and OS noise
+.vscode/
+.idea/
+*.swp
+
+# Local media used while testing the wallpaper (never part of the plugin)
+_preview-local.png
